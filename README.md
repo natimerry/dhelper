@@ -6,12 +6,12 @@ This project was written for the XINO event prompt 3. This uses liblkid library 
 about a block device.
 
 ## Features
-Retrieve details the block device specified.
-Scan a disk for healthy / unhealthy sectors
-Benchmark the disk program is running on.
+* Retrieve details the block device specified.
+* Scan a disk for healthy / unhealthy sectors
+* Benchmark the disk program is running on.
 
 ## Prerequisites
-This program has minimal dependencies. It depends on liblkid which 
+This program has minimal dependencies. It depends on `liblkid` which 
 is already present in all linux distros. It also depedns on `badblocks` which is a part of `e2fsprogs`
 which should also be on your linux distro, if not it can be easily installed using the package
 manager of your choice.
