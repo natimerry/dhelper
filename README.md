@@ -41,4 +41,6 @@ Note: Requires root access.
 
 ## Limitations and problems faced
 The benchmark heavily relies on STL libraries, this causes a bottleneck scanning disks. It is impossible to give a 1:1 representation of how fast your disk is, instead this reports a speed of how fast an average program can Read/Write files onto your disk.  
-  
+
+## Video Demo
+![demo](https://raw.githubusercontent.com/jiro-too/dhelper/master/video_demo/output.mp4)
