@@ -16,16 +16,16 @@ is already present in all linux distros. It also depedns on `badblocks` which is
 which should also be on your linux distro, if not it can be easily installed using the package
 manager of your choice.
 
-**Ubuntu/Debian**
+**Ubuntu/Debian**  
 `apt install e2fsprogs`
 
-**Arch Linux**
+**Arch Linux**  
 `pacman install e2fsprogs`
 
-**Fedora**
+**Fedora**  
 `dnf install e2fsprogs`
 
-**Gentoo**
+**Gentoo**  
 `emerge -aqv e2fsprogs`
 
 ## Building from source
@@ -34,8 +34,8 @@ The binary is copied to `/usr/bin/dhelper`
 
 ## Usage
 The usage is very simple too, the format is as follows:
-* `--type` followed by an argument, this can either be `nvme/hdd`. Indicates type of block device you want to probe.
-* `--device` followed by the disk you want to scan. Example usage `--device /dev/nvme0n1`
+* `--type` followed by an argument, this can either be `nvme/hdd`. Indicates type of block device you want to probe.  
+* `--device` followed by the disk you want to scan. Example usage `--device /dev/nvme0n1`  
 
 Note: Requires root access.
 
