@@ -179,8 +179,7 @@ std::string read_procmounts(std::string to_search){
   return read_procmounts("/dev/root"); 
 }
 
-
-void bench_disk(){
+extern "C" void bench_disk(int){
   std::cout << "Checking speed for partition /dev/root. Mtab mount details given below:\n";
   std::cout << read_procmounts("/dev/root") << std::endl;
   int file_arr[FILE_NUMBER]; 

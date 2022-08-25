@@ -39,7 +39,7 @@ void print_help(){
 int main(int argc, char **argv){
   int nvme = 0x69420;
   int to_bench;
-  char *blk_device = nullptr;
+  char *blk_device;
   char *bench_path;
   //loops thru argument list to get it.
   for (int i =0;i < argc; i++){

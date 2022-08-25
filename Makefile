@@ -8,11 +8,11 @@ dhelper: dhelper.o partition.o benchmark.o
 
 benchmark.o: benchmark.cpp benchmark.h
 	$(CXX) benchmark.cpp $(CXXFLAGS) -c
-dhelper.o: dhelper.cpp dhelper.h
-	$(CC) dhelper.cpp $(CXXFLAGS) -c 
+dhelper.o: dhelper.c dhelper.h
+	$(CC) dhelper.c $(CXXFLAGS) -c 
 
-partition.o: partition.cpp partition.h 
-	$(CC) partition.cpp -c $(CXXFLAGS)
+partition.o: partition.c partition.h 
+	$(CC) partition.c -c $(CXXFLAGS)
 
 clean:
 	rm -rf *.o

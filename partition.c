@@ -25,6 +25,7 @@
 // incompatibilities
 
 
+#include <stdint.h>
 #include <stdio.h>
 #include "colors.h"
 #include <stdlib.h>
@@ -82,10 +83,11 @@ void probe_disk(char* block_device,int is_nvme){
  
   // Calls kernel to get file_descriptor, or the block device in this case
   int file_descriptor = open(block_device,O_RDONLY);
-  double size;
-  ioctl(file_descriptor,BLKGETSIZE64,&size);
+  uint_least64_t size_uint;
+  ioctl(file_descriptor,BLKGETSIZE64,&size_uint);
+  double size = size_uint / 1024 / 1024 / 1024;
 
-  printf("\nSize of block device is %f GiB",size / 1024 / 1024 / 1024); // Converts bytes to GiB
+  printf("\nSize of block device is %f GiB",size); // Converts bytes to GiB
 
 
   const char *uuid;
