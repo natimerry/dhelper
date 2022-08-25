@@ -29,8 +29,8 @@ manager of your choice.
 `emerge -aqv e2fsprogs`
 
 ## Building from source
-As simple as running `make`. Can be installed using `make install`.
-The binary is copied to `/usr/bin/dhelper`
+As simple as running `make`. Can be installed using `make install`.  
+The binary is copied to `/usr/bin/dhelper`  
 
 ## Usage
 The usage is very simple too, the format is as follows:
@@ -40,6 +40,6 @@ The usage is very simple too, the format is as follows:
 Note: Requires root access.
 
 ## Limitations and problems faced
-The benchmark heavily relies on STL libraries, this causes a bottleneck scanning disks. It is impossible to give a 1:1 representation of how fast your disk is, instead this reports a speed of how fast an average program can Read/Write files onto your disk.
-
+The benchmark heavily relies on STL libraries, this causes a bottleneck scanning disks. It is impossible to give a 1:1 representation of how fast your disk is, instead this reports a speed of how fast an average program can Read/Write files onto your disk.  
+  
 Due to linker issues all C files had to be renamed to .cpp files. They are still compiled with GCC C compiler. 
