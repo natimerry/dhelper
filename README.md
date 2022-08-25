@@ -34,8 +34,9 @@ The binary is copied to `/usr/bin/dhelper`
 
 ## Usage
 The usage is very simple too, the format is as follows:
-`--type` followed by an argument, this can either be `nvme/hdd`. Indicates type of block device you want to probe.
-`--device` followed by the disk you want to scan. Example usage `--device /dev/nvme0n1`
+* `--type` followed by an argument, this can either be `nvme/hdd`. Indicates type of block device you want to probe.
+* `--device` followed by the disk you want to scan. Example usage `--device /dev/nvme0n1`
+
 Note: Requires root access.
 
 ## Limitations and problems faced
