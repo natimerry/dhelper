@@ -207,7 +207,6 @@ extern "C" void bench_disk(int){
   double total_time_read(0);
   double average_time_read;
 
-  // WE DO A 2 FILEs READ TO SAVE TIME.
   for (int i=0;i < FILE_NUMBER;i++){
     std::string file_name_to_read= DIRECTORY + std::to_string(static_cast<uint_fast64_t>(i)) + ".test";
     total_time_read+=read_files(file_name_to_read);
