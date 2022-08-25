@@ -42,4 +42,3 @@ Note: Requires root access.
 ## Limitations and problems faced
 The benchmark heavily relies on STL libraries, this causes a bottleneck scanning disks. It is impossible to give a 1:1 representation of how fast your disk is, instead this reports a speed of how fast an average program can Read/Write files onto your disk.  
   
-Due to linker issues all C files had to be renamed to .cpp files. They are still compiled with GCC C compiler. 
