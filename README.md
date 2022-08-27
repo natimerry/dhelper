@@ -6,9 +6,9 @@ This project was written for the XINO event prompt 3. This uses liblkid library 
 about a block device.
 
 ## Features
-* Retrieve details the block device specified.
+* Retrieve details from the block device specified.
 * Scan a disk for healthy / unhealthy sectors
-* Benchmark the disk program is running on.
+* Benchmark the disk the program is running on.
 
 ## Prerequisites
 This program has minimal dependencies. It depends on `liblkid` which 
@@ -41,4 +41,7 @@ Note: Requires root access.
 
 ## Limitations and problems faced
 The benchmark heavily relies on STL libraries, this causes a bottleneck scanning disks. It is impossible to give a 1:1 representation of how fast your disk is, instead this reports a speed of how fast an average program can Read/Write files onto your disk.  
-  
+
+## Video Demo  
+
+https://raw.githubusercontent.com/jiro-too/dhelper/master/video_demo/output.mp4
