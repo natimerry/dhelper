@@ -170,6 +170,7 @@ std::string read_procmounts(std::string to_search){
   while(std::getline(procfile,storage_var)){
     size_t found = storage_var.find(to_search);
     if (found != std::string::npos){
+      // Split the string to just list the partition the directory is mounted on
       return storage_var;
     }
   }
@@ -183,6 +184,7 @@ extern "C" void bench_disk(const char *DIRECTORY){
   std::string DIRNAME_TO_CREATE(DIRECTORY);
   DIRNAME_TO_CREATE.append("/bench_disk/");
   std::cout << "\nChecking speed for partition /dev/root. Mtab mount details given below:\n";
+
   std::cout << read_procmounts(DIRECTORY) << std::endl;
   int file_arr[FILE_NUMBER]; 
   for (int i =0; i < FILE_NUMBER;i++){

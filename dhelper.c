@@ -40,6 +40,7 @@ int main(int argc, char **argv){
   int to_bench;
   char *blk_device;
   char *bench_path;
+  char *path_to_bench="/boot/efi";
   //loops thru argument list to get it.
   for (int i =0;i < argc; i++){
     int check_type_var = strcmp(argv[i],"--type");
@@ -52,12 +53,19 @@ int main(int argc, char **argv){
     else if (strcmp("--device",argv[i]) == 0){
       blk_device=argv[i+1];
     }
+    else if (strcmp("--help",argv[i]) ==0){
+      print_help();
+    }
+    
+    else if (strcmp("--bench-path",argv[i])==0){
+      path_to_bench=argv[i+1];
+    }
   }
 
 
 
   probe_disk(blk_device,nvme);
-  bench_disk("/boot/efi");
+  bench_disk(path_to_bench);
 
   
 }
