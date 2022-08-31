@@ -40,7 +40,6 @@ namespace fs = std::filesystem;
 #define NANO_SEC_TO_SEC 1e9
 #define FILE_SIZE 1000000
 #define FILE_NUMBER 100
-#define DIRECTORY "./bench_test/"
 
 /**
  * Write files into a directory. Opens file_local and sets memory buffer size to 0
@@ -179,15 +178,19 @@ std::string read_procmounts(std::string to_search){
   return read_procmounts("/dev/root"); 
 }
 
-extern "C" void bench_disk(int){
-  std::cout << "Checking speed for partition /dev/root. Mtab mount details given below:\n";
-  std::cout << read_procmounts("/dev/root") << std::endl;
+extern "C" void bench_disk(const char *DIRECTORY){
+
+  std::string DIRNAME_TO_CREATE(DIRECTORY);
+  DIRNAME_TO_CREATE.append("/bench_disk/");
+  std::cout << "\nChecking speed for partition /dev/root. Mtab mount details given below:\n";
+  std::cout << read_procmounts(DIRECTORY) << std::endl;
   int file_arr[FILE_NUMBER]; 
   for (int i =0; i < FILE_NUMBER;i++){
     file_arr[i]=i; // fill up the array;
   }
-
-  fs::create_directory(DIRECTORY);
+  
+  std::cout << "Creating directory at: " << DIRNAME_TO_CREATE << std::endl;
+  fs::create_directory(DIRNAME_TO_CREATE);
   std::cout << "Beginning disk benchmark. Please be patient\n";
 
   // Shuffle the array, creates random devices using the standard library
@@ -199,7 +202,7 @@ extern "C" void bench_disk(int){
   double total_time_write(0);
   double average_time_write;
   for (int i =0;i < FILE_NUMBER; i++){
-    std::string file_name_to_write = DIRECTORY + std::to_string(static_cast<uint_fast64_t>(i)) + ".test";
+    std::string file_name_to_write = DIRNAME_TO_CREATE + std::to_string(static_cast<uint_fast64_t>(i)) + ".test";
     total_time_write+= write_files(file_name_to_write,FILE_SIZE);
   }
   average_time_write = total_time_write / FILE_NUMBER / NANO_SEC_TO_SEC;
@@ -208,7 +211,7 @@ extern "C" void bench_disk(int){
   double average_time_read;
 
   for (int i=0;i < FILE_NUMBER;i++){
-    std::string file_name_to_read= DIRECTORY + std::to_string(static_cast<uint_fast64_t>(i)) + ".test";
+    std::string file_name_to_read= DIRNAME_TO_CREATE + std::to_string(static_cast<uint_fast64_t>(i)) + ".test";
     total_time_read+=read_files(file_name_to_read);
   }
   average_time_read = total_time_read/FILE_NUMBER/NANO_SEC_TO_SEC;

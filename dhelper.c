@@ -30,7 +30,6 @@
 #include <string.h>
 #include "dhelper.h"
 
-extern void bench_disk();
 void print_help(){
   printf("Usage:\n --type [nvme/hdd] indicates type of block device\n --device shows the device to be used\n \
       Optionally specify --bench to benchmark the disk the disk current directory is mounted on");
@@ -58,7 +57,7 @@ int main(int argc, char **argv){
 
 
   probe_disk(blk_device,nvme);
-  bench_disk();
+  bench_disk("/boot/efi");
 
   
 }
