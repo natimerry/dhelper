@@ -52,7 +52,6 @@ void call_badblocks(char *block_device){
   system(command);
 }
 
-
 /**
  * Uses libblkid to get details about partition.
  * Due to lack of documentation about libblkid 
